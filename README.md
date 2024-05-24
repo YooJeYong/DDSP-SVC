@@ -56,23 +56,27 @@ git clone [link]
 
 model1 : [hubert](https://oo.pe/https://ibm.ent.box.com/s/z1wgl1stco8ffooyatzdwsqn2psd9lrr)
 
-```
-C:\DDSP-SVC\pretrain\hubert
-```
+
+>DDSP-SVC
+>>pretrain
+>>>hubert
+
 경로에 압축한 파일을 넣어줍니다.
 
 
 model2 : [nsf_hifigan](https://oo.pe/https://github.com/openvpi/vocoders/releases/download/nsf-hifigan-v1/nsf_hifigan_20221211.zip)
 
-```
-C:\DDSP-SVC\pretrain\nsf_hifigan
-```
+
+>DDSP-SVC
+>>pretrain
+>>>nsf_hifigan
+
 경로에 압축해제 한 파일을 넣어줍니다.
 
 
-## 2. Python 및 Anaconda 가상환경 세팅
+## 3. DDSP-SVC Python 및 Anaconda 가상환경 세팅
 
-### 2-1. 콘솔 실행
+### 3-1. 콘솔 실행
 
 ```
 window키 -> anaconda prompt 관리자 권한으로 실행
@@ -80,14 +84,14 @@ window키 -> anaconda prompt 관리자 권한으로 실행
 이하 명령어들은 모두 prompt 상에서 실행됩니다.
 
 
-### 2-2. 프로젝트 폴더로 이동
+### 3-2. 프로젝트 폴더로 이동
 
 ```
 cd /path/to/project/diff-svc-main/
 ```
 위의 경로는 프로젝트 파일을 압축 해제한 경로입니다. 
 
-### 2-3. Anaconda 가상환성 생성 및 활성
+### 3-3. Anaconda 가상환성 생성 및 활성
 
 ```
 conda create -n ddsp-svc python=3.8
@@ -96,13 +100,13 @@ conda activate ddsp-svc
 # 가상환경으로 진입하는 명령어 이후 맨앞에 (base)였던 환경이 ddsp-svc(내가 생성한 가상 환경의 이름)으로 전환됩니다.
 ```
 
-### 2-4. Pytorch 설치
+### 3-4. Pytorch 설치
 
 ```
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
 ```
 
-### 2-5. Pytorch 설치 확인
+### 3-5. Pytorch 설치 확인
 
 ```
 python
@@ -112,12 +116,12 @@ print(torch.__version__)
 위의 명령어를 타이핑 하였을때 Pytorch의 버전이 나온다면 설치 완료입니다.
 이후 ctr+z를 눌러 python 환경을 종료합니다.
 
-### 2-6 requirements 설치
+### 3-6 requirements 설치
 
 ```
 pip install -r requirements.txt
 ```
-오류 없이 설치되어야 하고 만약 오류가 생긴다면 가상 환경 삭제 후 1번부터 다시 시작합니다.
+오류 없이 설치되어야 하고 만약 오류가 생긴다면 가상 환경 삭제 후 3-1부터 다시 시작합니다.
 
 하단 명령어 참조
 
@@ -135,4 +139,31 @@ conda env remove -n "가상 환경 이름"
 
 ```
 
+## 4. 데이터 전처리 및 학습 
 
+## 4-1 음성 파일 옮기기
+
+
+> DDSP-SVC
+>> data
+>>> train
+>>>> audio 
+
+위의 경로에 2번에서 준비한 10~15초 사이의 wav로 파일을 모두 넣어줍니다.
+
+## 4-2 데이터 전처리  
+```
+python draw.py
+```
+
+실행하면 DDSP-SVC\data\train\audio 4.1에서 미리 넣어둔 음성 파일중 상태가
+
+좋은 파일 5~10개를 선별하여 C:\DDSP-SVC\data\val\audio 쪽으로 이동시켜 줍니다.
+
+이 경로에 있는 음성 파일들은 이후 음성 학습 시 학습 정도를 파악하는 용도의 ref 파일임으로 원하는 다른 파일로 교체해도 무방합니다.
+
+## 4-3 DDSP-SVC 내부 전처리
+
+```
+python preprocess.py -c configs/combsub.yaml
+```
