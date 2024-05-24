@@ -22,12 +22,11 @@ $\it{\large{\color{yellow}DIFF-SVC는 \ 데이터 \ 전처리용으로만 \ 사�
 ```
 ### 1-2. ffmpeg 설치
 ffmpeg 설치 링크 : [ffmpeg](https://www.gyan.dev/ffmpeg/builds/)
-```
+
 ffmpeg는 데이터 전처리 시 .mp4 혹은 다른 형태의 확장자를 .wav 형태로 바꿔주는 소프트웨어입니다.
 diff-svc로 데이터 전처리 시 의존성이 매우 크기 때문에 필수 설치사항입니다.
 만약 데이터 전처리를 diff-svc가 아닌 다른 형태로 진행하였다면 스킵해도 무방합니다
 또한 설치 후 환경 변수 세팅이 필요합니다. 해당 내용은 아래 참고
-```
 
 ```
 window키 => 시스템 환경 변수 편집 => 환경 변수 => 시스템 환경 변수(Path) => 압축 해제한 ffmpeg 파일의 bin 경로 입력
@@ -36,37 +35,104 @@ window키 => 시스템 환경 변수 편집 => 환경 변수 => 시스템 환경
 
 ### 1-3. CUDA 11.7 설치
 CUDA 11.7 설치 링크 : [CUDA 11.7](https://developer.nvidia.com/cuda-11-7-0-download-archive?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exe_local)
-```
+
 본 실습은 CUDA 11.7 버전으로 진행하고 있습니다. pytorch 및 DIFF-SVC, DDSP-SVC는 여러 의존성에 의존하기 떄문에 버전에 매우 민감하니 꼭 11.7 버전으로 설치하세요.
-```
+
 ### 1-4. DIFF-SVC 및 DDSP-SVC 다운로드
-DIFF-SVC 다운로드 링크 : [DIFF-SVC](https://github.com/prophesier/diff-svc)
+DIFF-SVC 다운로드 링크 : [DIFF-SVC](https://github.com/prophesier/diff-svc)   
 DDSP-SVC 다운로드 링크 : [DDSP-SVC](https://github.com/yxlllc/DDSP-SVC)
 
-```
+
 아래 사진과 같이 직접 다운로드 받거나
-git clone [link]
-명령어를 통해 다운로드 받습니다.
 ```
+git clone [link]
+```
+명령어를 통해 다운로드 받습니다.
+
       
 <img width="1048" alt="git hub download guide" src="https://github.com/YooJeYong/DDSP-SVC/assets/170379560/fd5d1ab4-2945-41e2-bf02-17848da3594d">
+
 ### 1-5. pretrained 모델 다운로드
 
-hubert : [hubert](https://oo.pe/https://ibm.ent.box.com/s/z1wgl1stco8ffooyatzdwsqn2psd9lrr)
+model1 : [hubert](https://oo.pe/https://ibm.ent.box.com/s/z1wgl1stco8ffooyatzdwsqn2psd9lrr)
 
 ```
 C:\DDSP-SVC\pretrain\hubert
-경로에 압축한 파일을 넣어줍니다.
 ```
+경로에 압축한 파일을 넣어줍니다.
 
-nsf_hifigan : [nsf_hifigan](https://oo.pe/https://github.com/openvpi/vocoders/releases/download/nsf-hifigan-v1/nsf_hifigan_20221211.zip)
+
+model2 : [nsf_hifigan](https://oo.pe/https://github.com/openvpi/vocoders/releases/download/nsf-hifigan-v1/nsf_hifigan_20221211.zip)
 
 ```
 C:\DDSP-SVC\pretrain\nsf_hifigan
+```
 경로에 압축해제 한 파일을 넣어줍니다.
+
+
+## 2. Python 및 Anaconda 가상환경 세팅
+
+### 2-1. 콘솔 실행
+
+```
+window키 -> anaconda prompt 관리자 권한으로 실행
+```
+이하 명령어들은 모두 prompt 상에서 실행됩니다.
+
+
+### 2-2. 프로젝트 폴더로 이동
+
+```
+cd /path/to/project/diff-svc-main/
+```
+위의 경로는 프로젝트 파일을 압축 해제한 경로입니다. 
+
+### 2-3. Anaconda 가상환성 생성 및 활성
+
+```
+conda create -n ddsp-svc python=3.8
+# 가상 환경 생성 및 ddsp-svc라는 이름으로 python 3.8 버전을 설치한다는 명령어
+conda activate ddsp-svc
+# 가상환경으로 진입하는 명령어 이후 맨앞에 (base)였던 환경이 ddsp-svc(내가 생성한 가상 환경의 이름)으로 전환됩니다.
 ```
 
-## 2. 데이터 전처리를 위한 python 및 anaconda 가상환경 세팅
+### 2-4. Pytorch 설치
 
+```
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
+```
+
+### 2-5. Pytorch 설치 확인
+
+```
+python
+import torch
+print(torch.__version__)
+```
+위의 명령어를 타이핑 하였을때 Pytorch의 버전이 나온다면 설치 완료입니다.
+이후 ctr+z를 눌러 python 환경을 종료합니다.
+
+### 2-6 requirements 설치
+
+```
+pip install -r requirements.txt
+```
+오류 없이 설치되어야 하고 만약 오류가 생긴다면 가상 환경 삭제 후 1번부터 다시 시작합니다.
+
+하단 명령어 참조
+
+```
+# Anaconda 관련 명령어
+
+# 활성화된 가상 환경을 비활성화 합니다.
+conda deactivate
+
+# 생성된 가상 환경 목록을 출력합니다.
+conda env list
+
+# 생선되어있는 가상 환경 목록 중 하나를 삭제합니다.
+conda env remove -n "가상 환경 이름"
+
+```
 
 
