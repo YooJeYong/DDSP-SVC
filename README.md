@@ -10,10 +10,30 @@
 [DIFF-SVC 개인정리 github](https://github.com/wlsdml1114/diff-svc)   
 [DIFF-SVC 개인정리 youtube](https://www.youtube.com/watch?v=8hJ1Wullg_g)  
 
-<span style='color:red'>**DIFF-SVC는 데이터 전처리용으로만 사용합니다.**</span>
+$\it{\large{\color{yellow}DIFF-SVC는 \ 데이터 \ 전처리용으로만 \ 사용합니다. }}$
+
 
 ## 1. DDSP-SVC 모델 설치
-### 1-1 아나콘다 및 파이썬 3.8버전 설치
-~~~
-ㅇㅇ
-~~~
+### 1-1 아나콘다 및 기본 프로그램 설치
+
+아나콘다 설치 링크 : [anaconda3](https://www.anaconda.com/download)
+```
+아나콘다는 파이썬 패키지 관리 및 가상 환경 구축에 매우 편리한 환경 관리 도구 입니다.
+```
+ffmpeg 설치 링크 : [ffmpeg](https://www.gyan.dev/ffmpeg/builds/)
+```
+ffmpeg는 데이터 전처리 시 .mp4 혹은 다른 형태의 확장자를 .wav 형태로 바꿔주는 소프트웨어입니다.
+diff-svc로 데이터 전처리 시 의존성이 매우 크기 때문에 필수 설치사항입니다.
+만약 데이터 전처리를 diff-svc가 아닌 다른 형태로 진행하였다면 스킵해도 무방합니다
+```
+CUDA 11.7 설치 링크 : [CUDA 11.7](https://developer.nvidia.com/cuda-11-7-0-download-archive?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exe_local)
+```
+본 실습은 CUDA 11.7 버전으로 진행하고 있습니다. pytorch 및 DIFF-SVC, DDSP-SVC는 여러 의존성에 의존하기 떄문에 버전에 매우 민감하니 꼭 11.7 버전으로 설치하세요.
+```
+DDSP-SVC 다운로드 링크 : [DIFF-SVC](https://github.com/prophesier/diff-svc)
+DDSP-SVC 다운로드 링크 : [DDSP-SVC](https://github.com/yxlllc/DDSP-SVC)
+
+
+
+
+
