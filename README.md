@@ -38,7 +38,7 @@ CUDA 11.7 설치 링크 : [CUDA 11.7](https://developer.nvidia.com/cuda-11-7-0-d
 
 본 실습은 CUDA 11.7 버전으로 진행하고 있습니다. pytorch 설치 시 CUDA 버전에 의존하니 꼭 11.7로 설치해 주세요.
 
-### 1-4. DIFF-SVC 및 DDSP-SVC 다운로드
+### 1-4. DDSP-SVC 다운로드
 
 DDSP-SVC 다운로드 링크 : [DDSP-SVC](https://github.com/yxlllc/DDSP-SVC)
 
