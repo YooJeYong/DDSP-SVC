@@ -126,7 +126,7 @@ window키 -> anaconda prompt 관리자 권한으로 실행
 ### 3-2. 프로젝트 폴더로 이동
 
 ```
-cd /path/to/project/diff-svc-main/
+cd /path/to/project/DDSP-SVC-master/
 ```
 위의 경로는 프로젝트 파일을 압축 해제한 경로입니다. 
 
@@ -153,16 +153,16 @@ import torch
 print(torch.__version__)
 ```
 위의 명령어를 타이핑 하였을때 Pytorch의 버전이 나온다면 설치 완료입니다.
-이후 ctr+z를 눌러 python 환경을 종료합니다.
+이후 ctr+z혹은 exit()을 타이핑하여 python 환경을 종료합니다.
 
-### 3-6 requirements 설치
+### 3-6. requirements 설치
 
 ```
 pip install -r requirements.txt
 ```
 오류 없이 설치되어야 하고 만약 오류가 생긴다면 가상 환경 삭제 후 3-1부터 다시 시작합니다.
 
-하단 명령어 참조
+** anaconda 관련 명령어 
 
 ```
 # Anaconda 관련 명령어
@@ -180,19 +180,61 @@ conda env remove -n "가상 환경 이름"
 
 ## 4. 데이터 전처리 및 학습 
 
-## 4-1 데이터 전처리  
+### 4-1. 데이터 전처리  
+
+>DDSP-SVC-master
+>>data
+>>>train
+>>>>audio
+
+위의 경로에 10~15초 사이로 잘린 wav 파일이 있는지 확인하고 아래 명령어를 실행합니다.
+
 ```
 python draw.py
 ```
 
-위의 명령어를 실행하면 아래 경로에서 DDSP-SVCdata\train\audio 경로에 넣어둔 음성 파일중 상태가
+위의 명령어를 실행하면 미리 잘라둔 파일 중 가장 상태가 좋은 파일 5~10개를 선별하여 아래 경로로
+>>DDSP-SVC-master
+>>>data
+>>>>val
+>>>>>audio
 
-가장 좋은 파일 5~10개를 선별하여 C:\DDSP-SVC\data\val\audio 쪽으로 이동시켜 줍니다.
+위의 경로에 있는 음성 파일들은 이후 음성 학습 시 학습 정도를 파악하는 용도의 ref 파일임으로 원하는 다른 파일로 교체해도 무방합니다.
 
-이 경로에 있는 음성 파일들은 이후 음성 학습 시 학습 정도를 파악하는 용도의 ref 파일임으로 원하는 다른 파일로 교체해도 무방합니다.
-
-## 4-2 DDSP-SVC 내부 전처리
+### 4-2. DDSP-SVC 내부 전처리
 
 ```
 python preprocess.py -c configs/combsub.yaml
 ```
+위의 명령어를 실행하여 ddsp-svc 내부 전처리를 진행합니다.
+완료되면 아래 경로에 f0, units, volume이라는 새로운 폴더가 생깁니다.
+
+>DDSP-SVC-master
+>>data
+>>>train
+
+## 학습 진행
+
+### 5-1. 학습 진행 전 config file 세팅
+
+
+### 5-2. 학습 진행
+```
+python train.py -c configs/combsub.yaml
+```
+위의 명령어를 실행하여 학습을 시작합니다.
+학습 파일은 아래 경로로 저장됩니다.
+>DDSP-SVC-master
+>>exp
+>>>combsub-test
+
+기본 설정으로 2000스텝마다 저장되며, 작업 관리자를 실행하여 vram 사용량이 적다면
+config.yaml의 batch_size를 적절히 조절하여 학습 속도를 조절하여 학습을 진행합니다.
+중간에 학습을 그만두고 싶다면 ctrl+c로 학습을 종료 할 수 있으며 중간에 학습을 종료하더라도 마지막 저장된 checkpoint부터 시작하기 때문에 중간에 종료한 시점부터 다시 시작이 가능합니다.
+DIFF-SVC와 다르게 DDSP-SVC는 학습 중간에 결과 확인이 가능한데 중간 학습 정도를 파악하고 싶다면 새로운 커맨드 창을 실행하여 (cmd,anaconda prompt 등) 아래 명령어를 실행합니다.
+```
+tensorboard --logdir="C:\DDSP-SVC\exp\combsub-test\logs"
+```
+위의 명령어를 실행 한 후 [http://localhost:6006/](http://localhost:6006/)로 접속하면 손실율(loss)와 현재 학습 중인 데이터의 수준을 들어볼 수 있습니다.
+손실율이 어느정도 안정되고 학습 결과가 제법 괜찮다면 ctrl+c로 학습을 종료합니다.
+
