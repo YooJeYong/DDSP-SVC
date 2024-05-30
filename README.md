@@ -7,8 +7,8 @@
 
 [DDSP-SVC 공식 github](https://github.com/yxlllc/DDSP-SVC/blob/master/ko_README.md)   
 [음성 AI 커뮤니티](https://arca.live/b/aispeech/74125759)   
-[DIFF-SVC 개인정리 github](https://github.com/wlsdml1114/diff-svc)   
-[DIFF-SVC 개인정리 youtube](https://www.youtube.com/watch?v=8hJ1Wullg_g)  
+[DIFF-SVC 개인정리 github](https://github.com/wlsdml1114/diff-svc?tab=readme-ov-file)   
+[DIFF-SVC 개인정리 youtube](https://github.com/wlsdml1114/DDSP-SVC-KOR)
 
 $\it{\large{\color{yellow}DIFF-SVC는 \ 데이터 \ 전처리용으로만 \ 사용합니다. }}$
 
@@ -36,7 +36,7 @@ window키 => 시스템 환경 변수 편집 => 환경 변수 => 시스템 환경
 ### 1-3. CUDA 11.7 설치
 CUDA 11.7 설치 링크 : [CUDA 11.7](https://developer.nvidia.com/cuda-11-7-0-download-archive?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exe_local)
 
-본 실습은 CUDA 11.7 버전으로 진행하고 있습니다. pytorch 및 DIFF-SVC, DDSP-SVC는 여러 의존성에 의존하기 떄문에 버전에 매우 민감하니 꼭 11.7 버전으로 설치하세요.
+본 실습은 CUDA 11.7 버전으로 진행하고 있습니다. pytorch 설치 시 CUDA 버전에 의존하니 꼭 11.7로 설치해 주세요.
 
 ### 1-4. DIFF-SVC 및 DDSP-SVC 다운로드
 DIFF-SVC 다운로드 링크 : [DIFF-SVC](https://github.com/prophesier/diff-svc)   
@@ -72,6 +72,10 @@ model2 : [nsf_hifigan](https://oo.pe/https://github.com/openvpi/vocoders/release
 >>>nsf_hifigan
 
 경로에 압축해제 한 파일을 넣어줍니다.
+
+## 2. DIFF-SVC로 DataSet 전처리
+
+### 2-1. 
 
 
 ## 3. DDSP-SVC Python 및 Anaconda 가상환경 세팅
