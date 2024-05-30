@@ -1,6 +1,6 @@
 # DDSP-SVC 학습 및 관련 내용 총정리
 
-## 링크 및 참고 정리
+## 링크 및 참고 정리   
 음성 변환 AI 모델인 DDSP-SVC을 실습하고 관련 내용을 정리하였습니다.   
 본 내용은 아래 링크에 있는 사이트에 나와있는 내용을 기반으로 하였고 관련한 내용을 실습하며 겪은 오류의 해결 방안이나 순서등을 따로 정리한 내용이니 아래 링크의 사이트에 들어가 학습을 진행하여도 아무런 문제 없으며
 정리한 순서 그대로 따라해도 무리없이 해당 모델을 사용 할 수 있게 만든 가이드이니 참고바랍니다.
@@ -213,7 +213,7 @@ python preprocess.py -c configs/combsub.yaml
 >>data
 >>>train
 
-## 학습 진행
+## 5. 학습 진행
 
 ### 5-1. 학습 진행 전 config file 세팅
 
@@ -237,4 +237,13 @@ tensorboard --logdir="C:\DDSP-SVC\exp\combsub-test\logs"
 ```
 위의 명령어를 실행 한 후 [http://localhost:6006/](http://localhost:6006/)로 접속하면 손실율(loss)와 현재 학습 중인 데이터의 수준을 들어볼 수 있습니다.
 손실율이 어느정도 안정되고 학습 결과가 제법 괜찮다면 ctrl+c로 학습을 종료합니다.
+
+## 6. 결과물 출력
+### 6-1. 결과물 출력 전처리
+학습한 음성을 원하는 음악 파일의 보컬에 덧씌우기 위해서는 vocal과 instrument를 분리해야 하기 때문에 UVR5를 사용하여 덧씌울 음악 파일의 전처리를 진행합니다.
+
+[UVR5 다운로드](https://github.com/Anjok07/ultimatevocalremovergui/releases/tag/v5.6)
+<img width="1048" alt="UVR5 다운로드" src="https://github.com/YooJeYong/DDSP-SVC/assets/170379560/380d3d7f-a0e7-448d-a136-0a65e1224c59">
+위의 링크로 접속하여 UVR5를 다운로드하고 설치까지 완료해줍니다.
+
 
