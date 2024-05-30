@@ -102,11 +102,16 @@ python sep_wav.py
 ```
 위의 명령어를 실행하고 작업이 끝났다면 아래 경로에서 10~15초 사이로 파일이 잘린지 확인 합니다.
 
->>diff-svc
->>>preprocess_out
->>>>final
+>diff-svc
+>>preprocess_out
+>>>final
 
+위의 작업이 이상없이 완료 됐다면 아래 경로로 위의 경로의 파일들을 모두 옮겨줍니다.
 
+>DDSP-SVC
+>>data
+>>>train
+>>>>audio
 
 ## 3. DDSP-SVC Python 및 Anaconda 가상환경 세팅
 
@@ -175,28 +180,18 @@ conda env remove -n "가상 환경 이름"
 
 ## 4. 데이터 전처리 및 학습 
 
-## 4-1 음성 파일 옮기기
-
-
-> DDSP-SVC
->> data
->>> train
->>>> audio 
-
-위의 경로에 2번에서 준비한 10~15초 사이의 wav로 파일을 모두 넣어줍니다.
-
-## 4-2 데이터 전처리  
+## 4-1 데이터 전처리  
 ```
 python draw.py
 ```
 
-실행하면 DDSP-SVC\data\train\audio 4.1에서 미리 넣어둔 음성 파일중 상태가
+위의 명령어를 실행하면 아래 경로에서 DDSP-SVCdata\train\audio 경로에 넣어둔 음성 파일중 상태가
 
-좋은 파일 5~10개를 선별하여 C:\DDSP-SVC\data\val\audio 쪽으로 이동시켜 줍니다.
+가장 좋은 파일 5~10개를 선별하여 C:\DDSP-SVC\data\val\audio 쪽으로 이동시켜 줍니다.
 
 이 경로에 있는 음성 파일들은 이후 음성 학습 시 학습 정도를 파악하는 용도의 ref 파일임으로 원하는 다른 파일로 교체해도 무방합니다.
 
-## 4-3 DDSP-SVC 내부 전처리
+## 4-2 DDSP-SVC 내부 전처리
 
 ```
 python preprocess.py -c configs/combsub.yaml
