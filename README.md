@@ -246,4 +246,6 @@ tensorboard --logdir="C:\DDSP-SVC\exp\combsub-test\logs"
 <img width="1048" alt="UVR5 다운로드" src="https://github.com/YooJeYong/DDSP-SVC/assets/170379560/380d3d7f-a0e7-448d-a136-0a65e1224c59">
 위의 링크로 접속하여 UVR5를 다운로드하고 설치까지 완료해줍니다.
 
+[UVR5 알고리즘 랭킹 사이트](https://mvsep.com/quality_checker/synth_leaderboard)
+위의 링크로 접속하면 가장 좋은 알고리즘 조합이 랭킹별로 정리 되어있습니다. 위의 사이트를 참고하여 작업을 진행해도 좋습니다.
 
