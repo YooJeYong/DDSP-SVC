@@ -242,7 +242,7 @@ tensorboard --logdir="C:\DDSP-SVC\exp\combsub-test\logs"
 ### 6-1. 결과물 출력 전처리
 학습한 음성을 원하는 음악 파일의 보컬에 덧씌우기 위해서는 vocal과 instrument를 분리해야 하기 때문에 UVR5를 사용하여 덧씌울 음악 파일의 전처리를 진행합니다.
 
-[UVR5 다운로드](https://github.com/Anjok07/ultimatevocalremovergui/releases/tag/v5.6)
+[UVR5 다운로드](https://github.com/Anjok07/ultimatevocalremovergui/releases/tag/v5.6)   
 <img width="1048" alt="UVR5 다운로드" src="https://github.com/YooJeYong/DDSP-SVC/assets/170379560/380d3d7f-a0e7-448d-a136-0a65e1224c59">
 위의 링크로 접속하여 UVR5를 다운로드하고 설치까지 완료해줍니다.
 
