@@ -39,7 +39,7 @@ CUDA 11.7 설치 링크 : [CUDA 11.7](https://developer.nvidia.com/cuda-11-7-0-d
 본 실습은 CUDA 11.7 버전으로 진행하고 있습니다. pytorch 설치 시 CUDA 버전에 의존하니 꼭 11.7로 설치해 주세요.
 
 ### 1-4. DIFF-SVC 및 DDSP-SVC 다운로드
-DIFF-SVC 다운로드 링크 : [DIFF-SVC](https://github.com/prophesier/diff-svc)   
+
 DDSP-SVC 다운로드 링크 : [DDSP-SVC](https://github.com/yxlllc/DDSP-SVC)
 
 
@@ -75,7 +75,37 @@ model2 : [nsf_hifigan](https://oo.pe/https://github.com/openvpi/vocoders/release
 
 ## 2. DIFF-SVC로 DataSet 전처리
 
-### 2-1. 
+### 2-1. DIFF-SVC 다운로드
+DIFF-SVC 다운로드 링크 : [DIFF-SVC](https://github.com/prophesier/diff-svc)
+
+위의 링크에서 받은 파일을 압축 해제합니다.
+
+### 2-2. 전처리 할 음성 파일 위치 옮기기
+압축 해제한 DIFF-SVC 파일의 하위 폴더인 preprocess 파일에 전처리 할 음성 파일을 옮깁니다.
+>DDSP-SVC
+>>preprocess
+
+### 2-3. 음성 파일 전처리 실행
+```
+window키 -> anaconda prompt 관리자 권한으로 실행 
+```
+anaconda prompt 실행 후 diff-svc 폴더로 이동합니다.
+
+```
+cd /path/to/project/diff-svc-main 
+```
+
+diff-svc 경로 이동 후 아래 명령어를 실행합니다.
+
+```
+python sep_wav.py
+```
+위의 명령어를 실행하고 작업이 끝났다면 아래 경로에서 10~15초 사이로 파일이 잘린지 확인 합니다.
+
+>>diff-svc
+>>>preprocess_out
+>>>>final
+
 
 
 ## 3. DDSP-SVC Python 및 Anaconda 가상환경 세팅
