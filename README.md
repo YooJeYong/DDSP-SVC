@@ -73,7 +73,7 @@ model2 : [nsf_hifigan](https://oo.pe/https://github.com/openvpi/vocoders/release
 
 경로에 압축해제 한 파일을 넣어줍니다.
 
-## 2. DIFF-SVC로 DataSet 전처리
+## 2. DIFF-SVC로 DataSet 전처리 (학습 데이터가 있다면 Skip)
 
 ### 2-1. DIFF-SVC 다운로드
 DIFF-SVC 다운로드 링크 : [DIFF-SVC](https://github.com/prophesier/diff-svc)
