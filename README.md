@@ -6,7 +6,6 @@
 정리한 순서 그대로 따라해도 무리없이 해당 모델을 사용 할 수 있게 만든 가이드이니 참고바랍니다.
 
 [DDSP-SVC 공식 github](https://github.com/yxlllc/DDSP-SVC/blob/master/ko_README.md)   
-[음성 AI 커뮤니티](https://arca.live/b/aispeech/74125759)   
 [DIFF-SVC 개인정리 github](https://github.com/wlsdml1114/diff-svc?tab=readme-ov-file)   
 [DIFF-SVC 개인정리 youtube](https://github.com/wlsdml1114/DDSP-SVC-KOR)
 
