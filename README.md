@@ -220,6 +220,63 @@ python preprocess.py -c configs/combsub.yaml
 
 ### 5-1. 학습 진행 전 config file 세팅
 
+아래 경로의 combsub 파일에 다음과 같은 내용을 붙여넣습니다.
+
+34행의 num_workers는 cpu와 gpu 사용 비율이고, 35행의 batch_size는 한번에 학습할 사이즈(gpu vram 사용량)를 정하는 결정하는 값임으로
+
+컴퓨터 사양에 맞게 수정해주세요.
+
+├── DDSP-SVC-master  
+│   ├── configs  
+│   │   ├── combsub.txt  
+```
+
+data:
+  f0_extractor: "harvest" # 'parselmouth', 'dio', 'harvest', 'crepe', 'rmvpe' or 'fcpe'
+  f0_min: 65 # about C2
+  f0_max: 800 # about G5
+  sampling_rate: 44100
+  block_size: 512 # Equal to hop_length
+  duration: 2 # Audio duration during training, must be less than the duration of the shortest audio clip
+  encoder: "contentvec768l12" # 'hubertsoft', 'hubertbase', 'hubertbase768', 'contentvec', 'contentvec768' or 'contentvec768l12' or 'cnhubertsoftfish'
+  cnhubertsoft_gate: 10
+  encoder_sample_rate: 16000
+  encoder_hop_size: 320
+  encoder_out_channels: 768 # 256 if using 'hubertsoft'
+  encoder_ckpt: pretrain/hubert/checkpoint_best_legacy_500.pt
+  train_path: data/train # Create a folder named "audio" under this path and put the audio clip in it
+  valid_path: data/val # Create a folder named "audio" under this path and put the audio clip in it
+  extensions: # List of extension included in the data collection
+    - wav
+model:
+  type: "CombSubSuperFast"
+  win_length: 2048
+  n_spk: 1 # max number of different speakers
+enhancer:
+  type: "nsf-hifigan"
+  ckpt: "pretrain/nsf_hifigan/model"
+loss:
+  fft_min: 256
+  fft_max: 2048
+  n_scale: 4 # rss kernel numbers
+device: cuda
+env:
+  expdir: exp/combsub-test
+  gpu_id: 0
+train:
+  num_workers: 2 # If your cpu and gpu are both very strong, set to 0 may be faster!
+  batch_size: 24
+  cache_all_data: true # Save Internal-Memory or Graphics-Memory if it is false, but may be slow
+  cache_device: "cuda" # Set to 'cuda' to cache the data into the Graphics-Memory, fastest speed for strong gpu
+  cache_fp16: true
+  epochs: 100000
+  interval_log: 10
+  interval_val: 2000
+  lr: 0.0005
+  weight_decay: 0
+  save_opt: false
+
+```
 
 ### 5-2. 학습 진행
 ```
@@ -241,6 +298,12 @@ tensorboard --logdir="C:\DDSP-SVC\exp\combsub-test\logs"
 ```
 위의 명령어를 실행 한 후 [http://localhost:6006/](http://localhost:6006/)로 접속하면 손실율(loss)와 현재 학습 중인 데이터의 수준을 들어볼 수 있습니다.
 손실율이 어느정도 안정되고 학습 결과가 제법 괜찮다면 ctrl+c로 학습을 종료합니다.
+
+* 학습 단계에서도 batch num_workers와 batch_size를 설정 할 수 있는데 5-1에서 설정한 값이 전역 변수라면 아래 경로에서 지정하는 값은 지역 지역 변수입니다.
+├── DDSP-SVC-master  
+│   ├── exp  
+│   │   ├── combsub-test
+│   │   ├── config.txt
 
 ## 6. 결과물 출력
 ### 6-1. 결과물 출력 전처리
