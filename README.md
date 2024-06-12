@@ -163,7 +163,7 @@ pip install -r requirements.txt
 ```
 오류 없이 설치되어야 하고 만약 오류가 생긴다면 가상 환경 삭제 후 3-1부터 다시 시작합니다.
 
-** anaconda 관련 명령어 
+* anaconda 관련 명령어 
 
 ```
 # Anaconda 관련 명령어
