@@ -336,5 +336,11 @@ python main.py -i "C:\DDSP-SVC\exp\vocal.wav" -m "C:\DDSP-SVC\exp\combsub-test\m
 명령어를 실행하면 마지막 checkpoint 기준으로 vocal부분이 덧씌워진 vocal_trans.wav가 출력됩니다.
 
 
+![goldwave](https://github.com/YooJeYong/DDSP-SVC/assets/170379560/239b7731-147a-419c-bd17-66a355c14c22)
+
+이후 goldwave 실행하고 vocal_trans.wav와 instrumental.wav 파일을 drag & drop하여 위의 이미지와 같이 띄운 후 vocal_trans를 클릭하여 선택하고 ctrl+c로 복사하고,
+다시 instrumental를 클릭하여 선택하고 ctrl+m을 눌러 vocal_trans과 instrumental를 병합하고 저장하면 학습한 목소리와 배경음이 합쳐진 결과물을 얻을 수 있습니다.
+
+
 
 
