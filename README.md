@@ -53,7 +53,7 @@ git clone [link]
 
 ### 1-5. pretrained 모델 다운로드
 
-model1 : [hubert](https://oo.pe/https://ibm.ent.box.com/s/z1wgl1stco8ffooyatzdwsqn2psd9lrr)
+model1 : [hubert](https://oo.pe/https://ibm.ent.box.com/s/z1wgl1stco8ffooyatzdwsqn2psd9lrr)
 
 
 ├── DDSP-SVC  
@@ -72,6 +72,12 @@ model2 : [nsf_hifigan](https://oo.pe/https://github.com/openvpi/vocoders/release
 
 
 경로에 압축해제 한 파일을 넣어줍니다.
+
+### 1-6. goldwave 설치
+
+추후 음성 파일을 합치는 과정에서 사용 할 goldwave를 설치합니다.
+
+goldwave 설치 링크 : [goldwave](https://goldwave.com/release.php)
 
 ## 2. DIFF-SVC로 DataSet 전처리 (학습 데이터가 있다면 Skip)
 
@@ -307,12 +313,28 @@ tensorboard --logdir="C:\DDSP-SVC\exp\combsub-test\logs"
 
 ## 6. 결과물 출력
 ### 6-1. 결과물 출력 전처리
-학습한 음성을 원하는 음악 파일의 보컬에 덧씌우기 위해서는 vocal과 instrument를 분리해야 하기 때문에 UVR5를 사용하여 덧씌울 음악 파일의 전처리를 진행합니다.
+학습한 음성을 원하는 음악 파일의 보컬에 덧씌우기 위해서는 vocal(목소리)과 instrument(배경음)를 분리해야 하기 때문에 UVR5를 사용하여 덧씌울 음악 파일의 전처리를 진행합니다.
 
 [UVR5 다운로드](https://github.com/Anjok07/ultimatevocalremovergui/releases/tag/v5.6)   
 <img width="1048" alt="UVR5 다운로드" src="https://github.com/YooJeYong/DDSP-SVC/assets/170379560/380d3d7f-a0e7-448d-a136-0a65e1224c59">
 위의 링크로 접속하여 UVR5를 다운로드하고 설치까지 완료해줍니다.
 
 [UVR5 알고리즘 랭킹 사이트](https://mvsep.com/quality_checker/synth_leaderboard)
-위의 링크로 접속하면 가장 좋은 알고리즘 조합이 랭킹별로 정리 되어있습니다. 위의 사이트를 참고하여 작업을 진행해도 좋습니다.
+위의 링크로 접속하면 가장 좋은 알고리즘 조합이 랭킹별로 정리 되어있습니다.  
+위의 사이트를 참고하여 작업을 진행해도 좋습니다.
+
+분리한 vocal 파일은 vocal.wav, instrument(배경음)은 instrumental.wav로 이름을 변경하고 
+
+├── DDSP-SVC-master  
+│   ├── exp  
+
+위의 경로에 해당 파일 2개를 넣어준 뒤
+
+```
+python main.py -i "C:\DDSP-SVC\exp\vocal.wav" -m "C:\DDSP-SVC\exp\combsub-test\model_best.pt" -o "C:\DDSP-SVC\exp\vocal_trans.wav" -k 0 -id 1 -eak 0
+```
+명령어를 실행하면 마지막 checkpoint 기준으로 vocal부분이 덧씌워진 vocal_trans.wav가 출력됩니다.
+
+
+
 
