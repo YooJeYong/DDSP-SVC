@@ -315,12 +315,15 @@ tensorboard --logdir="C:\DDSP-SVC\exp\combsub-test\logs"
 ### 6-1. 결과물 출력 전처리
 학습한 음성을 원하는 음악 파일의 보컬에 덧씌우기 위해서는 vocal(목소리)과 instrument(배경음)를 분리해야 하기 때문에 UVR5를 사용하여 덧씌울 음악 파일의 전처리를 진행합니다.
 
-[UVR5 다운로드](https://github.com/Anjok07/ultimatevocalremovergui/releases/tag/v5.6)   
-<img width="1048" alt="UVR5 다운로드" src="https://github.com/YooJeYong/DDSP-SVC/assets/170379560/380d3d7f-a0e7-448d-a136-0a65e1224c59">
-위의 링크로 접속하여 UVR5를 다운로드하고 설치까지 완료해줍니다.
+
+<img width="1048" alt="UVR5 다운로드" src="https://github.com/YooJeYong/DDSP-SVC/assets/170379560/380d3d7f-a0e7-448d-a136-0a65e1224c59">  
+
+[UVR5 다운로드](https://github.com/Anjok07/ultimatevocalremovergui/releases/tag/v5.6)
+해당 링크로 들어가 UVR5를 다운로드하고 설치까지 완료해줍니다.
+
 
 [UVR5 알고리즘 랭킹 사이트](https://mvsep.com/quality_checker/synth_leaderboard)
-위의 링크로 접속하면 가장 좋은 알고리즘 조합이 랭킹별로 정리 되어있습니다.  
+해당 링크로 들어가면 가장 좋은 알고리즘 조합이 랭킹별로 정리 되어있습니다.  
 위의 사이트를 참고하여 작업을 진행해도 좋습니다.
 
 분리한 vocal 파일은 vocal.wav, instrument(배경음)은 instrumental.wav로 이름을 변경하고 
