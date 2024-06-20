@@ -301,7 +301,7 @@ config.yaml의 batch_size를 적절히 조절하여 학습 속도를 조절하�
 중간에 학습을 그만두고 싶다면 ctrl+c로 학습을 종료 할 수 있으며 중간에 학습을 종료하더라도 마지막 저장된 checkpoint부터 시작하기 때문에 중간에 종료한 시점부터 다시 시작이 가능합니다.
 DIFF-SVC와 다르게 DDSP-SVC는 학습 중간에 결과 확인이 가능한데 중간 학습 정도를 파악하고 싶다면 새로운 커맨드 창을 실행하여 (cmd,anaconda prompt 등) 아래 명령어를 실행합니다.
 ```
-tensorboard --logdir="(경로!!)\DDSP-SVC-KOR-master\exp\combsub-test\logs"
+tensorboard --logdir="C:\DDSP-SVC-KOR-master\exp\combsub-test\logs"
 ```
 위의 명령어를 실행 한 후 [http://localhost:6006/](http://localhost:6006/)로 접속하면 손실율(loss)와 현재 학습 중인 데이터의 수준을 들어볼 수 있습니다.
 손실율이 어느정도 안정되고 학습 결과가 제법 괜찮다면 ctrl+c로 학습을 종료 할 수 있고 결과는 2000스텝마다 저장됩니다.
@@ -337,7 +337,7 @@ tensorboard --logdir="(경로!!)\DDSP-SVC-KOR-master\exp\combsub-test\logs"
 위의 경로에 해당 파일 2개를 넣어준 뒤
 
 ```
-python main.py -i "(경로!!)\DDSP-SVC\exp\vocal.wav" -m "(경로!!)\DDSP-SVC\exp\combsub-test\model_best.pt" -o "(경로!!)\DDSP-SVC\exp\vocal_trans.wav" -k 0 -id 1 -eak 0
+python main.py -i "C:\DDSP-SVC\exp\vocal.wav" -m "C:\DDSP-SVC\exp\combsub-test\model_best.pt" -o "C:\DDSP-SVC\exp\vocal_trans.wav" -k 0 -id 1 -eak 0
 ```
 명령어를 실행하면 마지막 checkpoint 기준으로 vocal부분이 덧씌워진 vocal_trans.wav가 출력됩니다.
 위 명령어의 .pt 확장자의 model_best는 학습 완료된 가장 최근 체크포인트의 .pt 파일입니다 !
