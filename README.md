@@ -256,7 +256,7 @@ data:
   extensions: # List of extension included in the data collection
     - wav
 model:
-  type: "CombSubSuperFast"
+  type: "CombSubFast"
   win_length: 2048
   n_spk: 1 # max number of different speakers
 enhancer:
