@@ -10,7 +10,7 @@
 [DIFF-SVC 개인정리 github](https://github.com/wlsdml1114/diff-svc?tab=readme-ov-file)   
 [DIFF-SVC 개인정리 youtube](https://github.com/wlsdml1114/DDSP-SVC-KOR)
 
-$\it{\large{\color{yellow}여기서 DIFF-SVC 모델은 \ 데이터 \ 전처리용으로만 \ 사용합니다. }}$
+$\it{\large{\color{yellow}여기서 \ DIFF-SVC 모델은 \ 데이터 \ 전처리용으로만 \ 사용합니다. }}$
 
 
 ## 1. 기본 프로그램 및 모델 다운로드
