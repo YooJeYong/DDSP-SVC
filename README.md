@@ -6,6 +6,7 @@
 정리한 순서 그대로 따라해도 무리없이 해당 모델을 사용 할 수 있게 만든 가이드이니 참고바랍니다.
 
 [DDSP-SVC 공식 github](https://github.com/yxlllc/DDSP-SVC/blob/master/ko_README.md)   
+[DDSP-SVC 개인정리 github](https://github.com/wlsdml1114/DDSP-SVC-KOR)
 [DIFF-SVC 개인정리 github](https://github.com/wlsdml1114/diff-svc?tab=readme-ov-file)   
 [DIFF-SVC 개인정리 youtube](https://github.com/wlsdml1114/DDSP-SVC-KOR)
 
@@ -36,7 +37,7 @@ CUDA 11.7 설치 링크 : [CUDA 11.7](https://developer.nvidia.com/cuda-11-7-0-d
 
 ### 1-4. DDSP-SVC 다운로드
 
-DDSP-SVC 다운로드 링크 : [DDSP-SVC](https://github.com/yxlllc/DDSP-SVC)
+DDSP-SVC 다운로드 링크 : [DDSP-SVC]([https://github.com/yxlllc/DDSP-SVC](https://github.com/wlsdml1114/DDSP-SVC-KOR))
 
 
 아래 사진과 같이 직접 다운로드 받거나
