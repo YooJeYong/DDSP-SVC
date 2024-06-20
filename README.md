@@ -340,6 +340,7 @@ tensorboard --logdir="(경로)\DDSP-SVC-KOR-master\exp\combsub-test\logs"
 python main.py -i "C:\DDSP-SVC\exp\vocal.wav" -m "C:\DDSP-SVC\exp\combsub-test\model_best.pt" -o "C:\DDSP-SVC\exp\vocal_trans.wav" -k 0 -id 1 -eak 0
 ```
 명령어를 실행하면 마지막 checkpoint 기준으로 vocal부분이 덧씌워진 vocal_trans.wav가 출력됩니다.
+위 명령어의 .pt 확장자의 model_best는 학습 완료된 가장 최근 체크포인트의 .pt 파일입니다 !
 
 
 ![goldwave](https://github.com/YooJeYong/DDSP-SVC/assets/170379560/239b7731-147a-419c-bd17-66a355c14c22)
