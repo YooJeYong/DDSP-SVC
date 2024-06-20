@@ -306,7 +306,7 @@ tensorboard --logdir="..\DDSP-SVC-KOR-master\exp\combsub-test\logs"
 위의 명령어를 실행 한 후 [http://localhost:6006/](http://localhost:6006/)로 접속하면 손실율(loss)와 현재 학습 중인 데이터의 수준을 들어볼 수 있습니다.
 손실율이 어느정도 안정되고 학습 결과가 제법 괜찮다면 ctrl+c로 학습을 종료합니다.
 
-* 학습 단계에서도 batch num_workers와 batch_size를 설정 할 수 있는데 5-1에서 설정한 값이 전역 변수라면 아래 경로에서 지정하는 값은 지역 지역 변수입니다.  
+* 학습 단계에서도 batch num_workers와 batch_size를 설정 할 수 있는데 5-1에서 설정한 값이 전역 변수라면 아래 경로에서 지정하는 값은 지역 변수입니다.  
 ├── DDSP-SVC-master  
 │   ├── exp  
 │   │   ├── combsub-test  
