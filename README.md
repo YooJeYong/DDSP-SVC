@@ -309,8 +309,8 @@ tensorboard --logdir="..\DDSP-SVC-KOR-master\exp\combsub-test\logs"
 * 학습 단계에서도 batch num_workers와 batch_size를 설정 할 수 있는데 5-1에서 설정한 값이 전역 변수라면 아래 경로에서 지정하는 값은 지역 지역 변수입니다.  
 ├── DDSP-SVC-master  
 │   ├── exp  
-│   │   ├── combsub-test
-│   │   ├── config.txt
+│   │   ├── combsub-test  
+│   │   ├── config.txt  
 
 ## 6. 결과물 출력
 ### 6-1. 결과물 출력 전처리
