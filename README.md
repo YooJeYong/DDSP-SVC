@@ -80,7 +80,7 @@ goldwave 설치 링크 : [goldwave](https://goldwave.com/release.php)
 ## 2. DIFF-SVC로 DataSet 전처리 (학습 데이터가 있다면 Skip)
 
 ### 2-1. DIFF-SVC 다운로드
-DIFF-SVC 다운로드 링크 : [DIFF-SVC](https://github.com/prophesier/diff-svc)
+DIFF-SVC 다운로드 링크 : [DIFF-SVC]([https://github.com/prophesier/diff-svc](https://github.com/wlsdml1114/diff-svc?tab=readme-ov-file))
 
 위의 링크에서 받은 파일을 압축 해제합니다.
 
