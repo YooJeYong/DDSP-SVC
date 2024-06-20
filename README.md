@@ -15,10 +15,8 @@ $\it{\large{\color{yellow}DIFF-SVC는 \ 데이터 \ 전처리용으로만 \ 사�
 ## 1. 기본 프로그램 및 모델 다운로드
 ### 1-1. 아나콘다 설치
 
-아나콘다 설치 링크 : [anaconda3](https://www.anaconda.com/download)
-```
+아나콘다 설치 링크 : [anaconda3](https://www.anaconda.com/download)  
 아나콘다는 파이썬 패키지 관리 및 가상 환경 구축에 매우 편리한 환경 관리 도구 입니다.
-```
 ### 1-2. ffmpeg 설치
 ffmpeg 설치 링크 : [ffmpeg](https://www.gyan.dev/ffmpeg/builds/)
 
