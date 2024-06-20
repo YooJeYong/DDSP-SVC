@@ -58,15 +58,18 @@ model1 : [hubert](https://oo.pe/https://ibm.ent.box.com/s/z1wgl1stco8ffooyatzdws
 │   ├── pretrain  
 │   │   ├── hubert  
 
-경로에 압축한 파일을 넣어줍니다.
+model2 : [hubert2](https://github.com/bshall/hubert/releases/download/v0.1/hubert-soft-0d54a1f4.pt)
 
+├── DDSP-SVC  
+│   ├── pretrain  
+│   │   ├── hubert  
 
-model2 : [nsf_hifigan](https://oo.pe/https://github.com/openvpi/vocoders/releases/download/nsf-hifigan-v1/nsf_hifigan_20221211.zip)
-
+model3 : [nsf_hifigan](https://oo.pe/https://github.com/openvpi/vocoders/releases/download/nsf-hifigan-v1/nsf_hifigan_20221211.zip)
 
 ├── DDSP-SVC  
 │   ├── pretrain  
 │   │   ├── nsf_hifigan  
+
 
 
 경로에 압축해제 한 파일을 넣어줍니다.
