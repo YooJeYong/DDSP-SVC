@@ -37,7 +37,7 @@ CUDA 11.7 설치 링크 : [CUDA 11.7](https://developer.nvidia.com/cuda-11-7-0-d
 
 ### 1-4. DDSP-SVC 다운로드
 
-DDSP-SVC 다운로드 링크 : [DDSP-SVC]([https://github.com/yxlllc/DDSP-SVC](https://github.com/wlsdml1114/DDSP-SVC-KOR))
+DDSP-SVC 다운로드 링크 : [DDSP-SVC](https://github.com/wlsdml1114/DDSP-SVC-KOR)
 
 
 아래 사진과 같이 직접 다운로드 받거나
